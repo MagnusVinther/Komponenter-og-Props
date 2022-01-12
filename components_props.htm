@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Components og Props</title>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Her skal du indsætte din react kode
+
+        const Greeting = (props) => {
+            return (
+                <div>Hello {props.name} {props.lastname}</div>
+            )
+        }
+
+        const artists = [
+            { name: 'Bill Wurtz', genre: 'Jazz-pop'},
+            { name: 'Avenged Sevenfold', genre: 'Metal'},
+            { name: 'Eric Satie', genre: 'Classical'},
+            { name: 'Johann Parchebel', genre: 'Classical'}
+        ]
+
+        const ShowArtists = (props) => {
+            console.log(props);
+            return (
+                <ul>
+                    {props.data.map((item, key) => {
+                        return (
+                            <Artist key={key} name={item.name} genre={item.genre} />
+                        )
+                    })}
+                </ul>
+            )
+        }
+
+        const Artist = (props) => {
+            return <li>{props.name}, {props.genre}</li>
+        }
+
+        ReactDOM.render(
+            // <Greeting name="Magnus" lastname="Vinther"/>,
+            <ShowArtists data={artists}/>,
+            document.getElementById('root')          
+        )
+    </script>
+
+  </body>
+</html>

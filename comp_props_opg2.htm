@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>HTML Template til React</title>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Her skal du indsætte din react kode
+        const lifedishes = [
+            'Burger',
+            'Mørbrad m. Champignon sovs',
+            'Pizza',
+            'Kage',
+            'Kage igen'
+        ]
+
+        const LifedishList = (props) => {
+          // console.log(props);
+          return (
+            <ul>
+              {props.data.map(lifedishes => {
+                return (
+                  <li>
+                    {lifedishes}
+                  </li>
+                )
+              })}
+            </ul>
+          )
+        }
+
+
+        ReactDOM.render(
+          <LifedishList data={lifedishes} />,
+          document.getElementById('root')
+        )
+
+    </script>
+
+  </body>
+</html>
